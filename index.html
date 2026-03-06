@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asit–Baz Güvenliği</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f2027;
+    color: white;
+    overflow: hidden;
+}
+
+/* 🎬 Intro Video */
+#intro {
+    position: fixed;
+    inset: 0;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#intro video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 🔊 Ses Aç Butonu */
+#soundBtn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10001;
+    padding: 10px 15px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* 📄 İçerik */
+#content {
+    display: none;
+    padding: 40px;
+    max-width: 900px;
+    margin: auto;
+    line-height: 1.6;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+h1 {
+    text-align: center;
+    color: #00e5ff;
+    margin-bottom: 30px;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 20px;
+}
+
+.sub {
+    margin-left: 20px;
+    font-size: 15px;
+    color: #cfd8dc;
+}
+
+.warning {
+    margin-top: 30px;
+    background: rgba(255,0,0,0.1);
+    padding: 20px;
+    border-left: 4px solid red;
+    border-radius: 6px;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* 📱 Mobil Uyumluluk */
+@media (max-width:768px){
+
+#content{
+padding:20px;
+}
+
+h1{
+font-size:22px;
+}
+
+li{
+font-size:16px;
+}
+
+.sub{
+font-size:14px;
+margin-left:15px;
+}
+
+#soundBtn{
+top:10px;
+right:10px;
+font-size:14px;
+padding:8px 12px;
+}
+
+.warning{
+font-size:15px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<!-- 🎬 Video -->
+<div id="intro">
+    <video id="introVideo" autoplay muted playsinline>
+        <source src="animation/Fen Bilimleri Laboratuvar Maceras_0p.mp4" type="video/mp4">
+        Tarayıcınız video etiketini desteklemiyor.
+    </video>
+    <button id="soundBtn">🔊 Sesi Aç</button>
+</div>
+
+<!-- 📄 İçerik -->
+<div id="content">
+    <h1>🧪 Asit–Baz Deneylerinde Kullanılması Gereken Güvenlik Ekipmanları</h1>
+
+    <ul>
+
+        <li>🥼 <strong>Laboratuvar önlüğü</strong>
+            <div class="sub">• Kıyafetleri kimyasal sıçramalara karşı korur.</div>
+            <div class="sub">• Ciltle teması engellemeye yardımcı olur.</div>
+        </li>
+
+        <li>🥽 <strong>Koruyucu gözlük</strong>
+            <div class="sub">• Sıçrama riskine karşı gözleri korur.</div>
+            <div class="sub">• Göz hasarını önlemek için en önemli ekipmanlardan biridir.</div>
+        </li>
+
+        <li>🧤 <strong>Koruyucu eldiven</strong>
+            <div class="sub">• Kimyasal temasını önler.</div>
+            <div class="sub">• Yanık ve tahriş riskini azaltır.</div>
+        </li>
+
+        <li>😷 <strong>Maske (gerektiğinde)</strong>
+            <div class="sub">• Zararlı buharların solunmasını azaltır.</div>
+            <div class="sub">• Solunum yollarını korur.</div>
+        </li>
+
+        <li>🧑‍🔬 <strong>Kapalı ayakkabı</strong>
+            <div class="sub">• Dökülmelere karşı korur.</div>
+            <div class="sub">• Açık ayakkabılar ciddi yaralanmalara yol açabilir.</div>
+        </li>
+
+        <li>🧯 <strong>Laboratuvar güvenlik ekipmanları</strong>
+            <div class="sub">• Göz yıkama istasyonu</div>
+            <div class="sub">• Acil duş</div>
+            <div class="sub">• Yangın söndürücü</div>
+        </li>
+
+    </ul>
+
+    <div class="warning">
+        ⚠️ <strong>Neden Bu Kadar Önemli?</strong><br><br>
+        • Asitler ve bazlar aşındırıcı olabilir.<br>
+        • Yanlış kullanım ciddi cilt, göz ve solunum hasarına yol açabilir.<br>
+        • Basit bir sıçrama bile ciddi kazalara neden olabilir.<br><br>
+        <strong>Bilimsel çalışmada ilk kural: Önce güvenlik.</strong>
+    </div>
+
+</div>
+
+<script>
+
+const video = document.getElementById("introVideo");
+const intro = document.getElementById("intro");
+const content = document.getElementById("content");
+const soundBtn = document.getElementById("soundBtn");
+
+// Video bitince içeriği göster
+video.addEventListener("ended", function() {
+
+    intro.style.transition = "opacity 1s ease";
+    intro.style.opacity = "0";
+
+    setTimeout(() => {
+
+        intro.style.display = "none";
+        content.style.display = "block";
+        document.body.style.overflow = "auto";
+
+    }, 1000);
+
+});
+
+// Ses aç
+soundBtn.addEventListener("click", function(){
+
+video.muted=false;
+soundBtn.style.display="none";
+
+});
+
+</script>
+
+</body>
+</html>
